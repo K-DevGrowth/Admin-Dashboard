@@ -1,0 +1,253 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+:root {
+    --blue-color: #1992d4;
+    --gray-color: #e2e8f0;
+    --white-color: #fff;
+    --yellow-color: #efb52e;
+}
+
+html {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+}
+
+svg {
+    display: block;
+    max-width: 100%;
+    width: 20px;
+    fill: white;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-auto-columns: minmax(200px, 1fr);
+    grid-template-rows: 140px;
+    grid-template-areas: 
+    "sidebar header header header header"
+    "sidebar mainContent mainContent mainContent mainContent"
+    "sidebar mainContent mainContent mainContent mainContent";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--blue-color);
+    padding: 20px;
+    height: 100vh;
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flex-box {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .flex-box:not(:first-child):hover {
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0.6;
+}
+
+.sidebar .flex-box:first-child svg {
+    width: 30px;
+}
+
+.sidebar .flex-box:first-child {
+    margin-bottom: 25px;
+}
+
+.sidebar .flex-box:nth-child(8) {
+    margin-top: 25px;
+}
+
+.sidebar .flex-box:first-child span {
+    font-size: 20px;
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--white-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    display: block;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.16);
+}
+
+.header svg {
+    fill: black;
+}
+
+.header #search-bar {
+    background-color: var(--gray-color);
+    padding: 8px 10px;
+    border-radius: 15px;
+    border: none;
+    max-width: 100%;
+    width: 45vw;
+    margin-left: 10px;
+}
+
+.header .space-between {
+    justify-content: space-between;
+}
+
+.header p {
+    font-weight: 700;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 1.5px solid var(--yellow-color);
+}
+
+.header #information {
+    margin-top: 15px;
+}
+
+.header #information img {
+    width: 50px;
+}
+
+.header #information div p:first-child {
+    font-size: 14px;
+}
+
+.header #information.flex-box {
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    padding: 4px 20px;
+    margin: 0 10px;
+    background-color: var(--blue-color);
+    border-radius: 15px;
+    color: white;
+    display: block;
+    font-weight: 600;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+ul li:hover {
+    opacity: 0.6;
+}
+
+.main-content {
+    grid-area: mainContent;
+    background-color: var(--gray-color);
+    display: grid;
+    padding: 0 20px;
+    gap: 15px;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    "title title title"
+    "project project announce"
+    "project project trendTitle"
+    "project project trending"
+    ;
+}
+
+.main-content #projects {
+    display: grid;
+    grid-area: project;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.main-content .card {
+    background-color: white;
+    border-left: 6px solid #efb52e;
+    border-radius: 5px;
+    padding: 20px;
+    height: 150px;
+    box-shadow: 1px 3px 5px #aaa;
+}
+
+.main-content .card p {
+    font-size: 12px;
+}
+
+.main-content #announcements {
+    grid-area: announce;
+}
+
+.main-content #announcements.card {
+    border: none;
+    height: 250px;
+    padding: 0 20px;
+}
+
+.main-content #announcements.card div {
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+}
+
+.main-content #announcements.card div:last-of-type {
+    border: none;
+}
+
+.main-content #trending {
+    grid-area: trending;
+}
+
+.main-content #trending.card {
+    border: none;
+    height: 200px;
+    padding: 10px;
+    margin-top: -10px;
+}
+
+.main-content #trending.card p {
+    font-size: 16px;
+}
+
+.main-content #trending.card p:last-child {
+    color: gray;
+}
+
+.main-content .title {
+    grid-area: title;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+}
+
+.main-content .title p:last-child {
+    margin-right: 180px;
+}
+
+.trending {
+    grid-area: trendTitle;
+    font-weight: 600;
+}
+
+.main-content svg {
+    fill: black;
+}
+
+.main-content .card:not(#trending) .flex-box {
+    padding-top: 40px;
+    justify-content: end;
+}
